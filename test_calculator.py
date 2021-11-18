@@ -54,3 +54,32 @@ def test_hisotory():
     assert calculator.history == [5, -1, 6, 1]
     calculator.sqrt(16)
     assert calculator.history == [5, -1, 6, 1, 4]
+
+
+def test_memory_add():
+    calculator = Calculator()
+    calculator.memory_add(12)
+    assert calculator.memory == 12
+    calculator.memory_add(-20)
+    assert calculator.memory == -8
+
+
+def test_memory_sub():
+    calculator = Calculator()
+    calculator.memory_sub(12)
+    assert calculator.memory == -12
+    calculator.memory_sub(-20)
+    assert calculator.memory == 8
+
+
+def test_memory_clear():
+    calculator = Calculator()
+    calculator.memory_add(3.4)
+    calculator.memory_clear()
+    assert calculator.memory == 0
+
+
+def test_memory():
+    calculator = Calculator()
+    calculator.memory_add(calculator.add(12, -3))
+    assert calculator.sub(100, calculator.memory) == 91

@@ -4,6 +4,7 @@ import math
 class Calculator:
     def __init__(self) -> None:
         self.history = []
+        self.memory = 0
 
     def add(self, a, b):
         result = a + b
@@ -29,3 +30,12 @@ class Calculator:
         result = math.sqrt(a)
         self.history.append(result)
         return result
+
+    def memory_add(self, a):
+        self.memory += a
+
+    def memory_sub(self, a):
+        self.memory -= a
+
+    def memory_clear(self):
+        self.memory = 0
