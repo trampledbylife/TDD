@@ -39,3 +39,18 @@ def test_sqrt():
     assert calculator.sqrt(36) == 6
     with pytest.raises(ValueError):
         calculator.sqrt(-69)
+
+
+def test_hisotory():
+    calculator = Calculator()
+    assert calculator.history == []
+    calculator.add(2, 3)
+    assert calculator.history == [5]
+    calculator.sub(2, 3)
+    assert calculator.history == [5, -1]
+    calculator.mul(2, 3)
+    assert calculator.history == [5, -1, 6]
+    calculator.div(2, 2)
+    assert calculator.history == [5, -1, 6, 1]
+    calculator.sqrt(16)
+    assert calculator.history == [5, -1, 6, 1, 4]

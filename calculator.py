@@ -2,19 +2,30 @@ import math
 
 
 class Calculator:
+    def __init__(self) -> None:
+        self.history = []
 
     def add(self, a, b):
-        return a + b
+        result = a + b
+        self.history.append(result)
+        return result
 
     def sub(self, a, b):
-        return a + b
+        result = a - b
+        self.history.append(result)
+        return result
 
     def mul(self, a, b):
-        return a * b
+        result = a * b
+        self.history.append(result)
+        return result
 
     def div(self, a, b):
-        return a / b
+        result = a / b
+        self.history.append(result)
+        return result
 
     def sqrt(self, a):
-        # return a**0.5 #dlaczego nie zadziała???
-        return math.sqrt(a)
+        result = math.sqrt(a)
+        self.history.append(result)
+        return result
