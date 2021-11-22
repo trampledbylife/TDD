@@ -54,3 +54,48 @@ def test_hisotory():
     assert calculator.history == [5, -1, 6, 1]
     calculator.sqrt(16)
     assert calculator.history == [5, -1, 6, 1, 4]
+
+def test_memory_clear():
+    calculator = Calculator()
+    assert calculator.memory == 0
+    calculator.memory = 1000
+    calculator.memory_clear()
+    assert (calculator.memory == 0)
+    calculator.memory_clear()
+    assert (calculator.memory == 0)
+    calculator.memory = -34
+    calculator.memory_clear()
+    assert (calculator.memory == 0)
+
+def test_memory_add():
+    calculator = Calculator()
+    assert calculator.memory == 0
+    assert(calculator.memory_add(5) == 5)
+    assert(calculator.memory == 5)
+    calculator.memory = 5
+    assert(calculator.memory_add(7) == 12)
+    assert(calculator.memory == 12)
+    calculator.memory = -33
+    assert(calculator.memory_add(0) == -33)
+    assert(calculator.memory == -33)
+    calculator.memory = -33
+    assert (calculator.memory_add(-7) == -40)
+    assert(calculator.memory == -40)
+
+def test_memory_sub():
+    calculator = Calculator()
+    assert calculator.memory == 0
+    assert(calculator.memory_sub(5) == -5)
+    assert(calculator.memory == -5)
+    calculator.memory = -5
+    assert(calculator.memory_sub(7) == -12)
+    assert(calculator.memory == -12)
+    calculator.memory = -33
+    assert(calculator.memory_sub(0) == -33)
+    assert(calculator.memory == -33)
+    calculator.memory = -33
+    assert (calculator.memory_sub(-7) == -26)
+    assert(calculator.memory == -26)
+
+
+
