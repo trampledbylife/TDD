@@ -56,6 +56,13 @@ def test_hisotory():
     assert calculator.history == [5, -1, 6, 1, 4]
 
 
+def test_memory():
+    calculator = Calculator()
+    assert calculator.memory == 0
+    calculator.memory_add(calculator.add(12, -3))
+    assert calculator.sub(100, calculator.memory) == 91
+
+
 def test_memory_add():
     calculator = Calculator()
     calculator.memory_add(12)
@@ -77,9 +84,3 @@ def test_memory_clear():
     calculator.memory_add(3.4)
     calculator.memory_clear()
     assert calculator.memory == 0
-
-
-def test_memory():
-    calculator = Calculator()
-    calculator.memory_add(calculator.add(12, -3))
-    assert calculator.sub(100, calculator.memory) == 91
