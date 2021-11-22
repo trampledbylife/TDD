@@ -41,7 +41,7 @@ def test_sqrt():
         calculator.sqrt(-69)
 
 
-def test_hisotory():
+def test_history():
     calculator = Calculator()
     assert calculator.history == []
     calculator.add(2, 3)
@@ -54,3 +54,56 @@ def test_hisotory():
     assert calculator.history == [5, -1, 6, 1]
     calculator.sqrt(16)
     assert calculator.history == [5, -1, 6, 1, 4]
+
+
+def test_init_memory_exists():
+    assert hasattr(Calculator(), 'memory')
+
+
+def test_init_memory_is_list():
+    assert isinstance(Calculator().memory, list)
+
+
+def test_init_memory_is_empty():
+    assert len(Calculator().memory) == 0
+
+
+def test_memory_add_callable():
+    assert callable(getattr(Calculator, 'memory_add'))
+
+
+def test_memory_add_appends_memory():
+    c = Calculator()
+    c.memory_add(5)
+    assert c.memory == [5]
+
+
+def test_memory_add_makes_memory_non_empty():
+    c = Calculator()
+    c.memory_add(5)
+    assert c.memory != []
+
+
+def test_memory_add_returns_nothing():
+    assert not Calculator().memory_add(5)
+
+
+def test_memory_clear_callable():
+    assert callable(getattr(Calculator, 'memory_clear'))
+
+
+def test_memory_clear():
+    c = Calculator()
+    c.memory_add(5)
+    c.memory_clear()
+    assert c.memory == []
+
+
+def test_memory_sub_callable():
+    assert callable(getattr(Calculator, 'memory_sub'))
+
+
+def test_memory_sub_raises_exception_on_subtracting_unknown_type():
+    c = Calculator()
+    with pytest.raises(TypeError):
+        c.memory_sub(5)
