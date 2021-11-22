@@ -57,6 +57,7 @@ def test_hisotory():
 
 def test_memory_add():
     c = Calculator()
+    assert c.memory == 0
     c.memory_add(12)
     assert  c.memory == 12
     c.memory_add(20)
@@ -64,6 +65,7 @@ def test_memory_add():
 
 def test_memory_sub():
     c = Calculator()
+    assert c.memory == 0
     c.memory_sub(12)
     assert  c.memory == -12
     c.memory_sub(20)
@@ -71,6 +73,7 @@ def test_memory_sub():
 
 def test_memory_clear():
     c = Calculator()
+    assert c.memory == 0
     c.memory_add(420)
     c.memory_add(42)
     c.memory_sub(69)
